@@ -1,6 +1,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.MoveMotorCom;
 import frc.robot.subsystems.MoveMotorSub;
@@ -14,12 +15,15 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final MoveMotorSub moveMotorSub = new MoveMotorSub();
+  public final MoveMotorSub moveMotorSub = new MoveMotorSub();
 
-  private final MoveMotorCom moveMotorCom = new MoveMotorCom(moveMotorSub);
+  public final MoveMotorCom moveMotorCom = new MoveMotorCom(moveMotorSub);
+
+  public final static Joystick driverJoy = new Joystick(0);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+    moveMotorSub.setDefaultCommand(moveMotorCom);
     // Configure the button bindings
     configureButtonBindings();
   }

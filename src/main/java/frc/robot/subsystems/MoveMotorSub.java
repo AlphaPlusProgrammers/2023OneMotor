@@ -6,12 +6,18 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.RobotContainer;
 
 public class MoveMotorSub extends SubsystemBase {
   /** Creates a new MoveMotorSub. */
-  public Talon motor;
-  public MoveMotorSub() {}
+  public static Talon motor;
+  public MoveMotorSub() {
+    motor = new Talon(1);
+  }
 
+  public static void moveThatMotor() {
+    motor.set(RobotContainer.driverJoy.getRawAxis(0));
+  }
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
