@@ -12,7 +12,7 @@ public class MoveMotorSub extends SubsystemBase {
   /** Creates a new MoveMotorSub. */
   public static Talon motor;
   public MoveMotorSub() {
-    motor = new Talon(2);
+    motor = new Talon(1);
   }
 
   public static void moveThatMotor() {
